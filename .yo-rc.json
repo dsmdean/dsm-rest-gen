@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Dean Menso",
+      "authorEmail": "deanmenso@gmail.com",
+      "authorUrl": "https://github.com/dsmdean"
+    }
+  }
+}
