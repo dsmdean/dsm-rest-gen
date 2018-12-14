@@ -1,6 +1,6 @@
 {
   "name": "generator-km-rest-api",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Rest API generator using yo",
   "homepage": "https://github.com/KreateMarket/generator-km-rest-api",
   "author": {
@@ -39,8 +39,10 @@
     "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "yeoman-generator": "^2.0.1",
     "chalk": "^2.1.0",
+    "lodash": "^4.17.11",
+    "rand-token": "^0.4.0",
+    "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
   "jest": {

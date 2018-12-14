@@ -1,0 +1,8 @@
+<%_ if (generateUserApi) { _%>
+SENDGRID_KEY=<%= sendgridKey %>
+JWT_SECRET=<%= jwtSecret %>
+FRONTEND_LINK=<%= frontLink %>
+DEFAULT_EMAIL=<%= defaultEmail %>
+<%_ } _%>
+MONGODB_URI=<%= mongodbUri %>
+PORT=<%= port %>
