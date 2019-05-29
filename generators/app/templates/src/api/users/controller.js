@@ -57,9 +57,9 @@ export const verify = (req, res) => {
 }
 
 export const forgot = (req, res) =>
-  User.findOne({ username: req.query.username }, (err, user) => {
+  User.findOne({ email: req.query.email }, (err, user) => {
     if (err) return res.status(500).json({ err: err })
-    if (!user) return res.status(404).json({ err: { message: 'There is no user with this username' } })
+    if (!user) return res.status(404).json({ err: { message: 'There is no user with this email' } })
 
     crypto.randomBytes(20, (err, buf) => {
       if (err) return res.status(500).json({ err: err })
@@ -81,7 +81,7 @@ export const forgot = (req, res) =>
             &mdash; <%= name %> Team
         `
         sendMail(user.email, '<%= name %> - Reset Password', content)
-        return res.status(200).json({ message: '' })
+        return res.status(200).json({ message: 'Reset email sent!' })
       })
     })
   })

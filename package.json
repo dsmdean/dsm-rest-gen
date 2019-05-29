@@ -1,8 +1,8 @@
 {
-  "name": "generator-km-rest-api",
+  "name": "generator-rest-api",
   "version": "1.0.0",
   "description": "Rest API generator using yo",
-  "homepage": "https://github.com/KreateMarket/generator-km-rest-api",
+  "homepage": "https://github.com/dsmdean/generator-rest-api",
   "author": {
     "name": "Dean Menso",
     "email": "deanmenso@gmail.com",
@@ -78,6 +78,6 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "https://github.com/KreateMarket/generator-km-rest-api.git",
+  "repository": "https://github.com/dsmdean/generator-rest-api",
   "license": "MIT"
 }
