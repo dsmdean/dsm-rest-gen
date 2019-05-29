@@ -1,8 +1,8 @@
 {
-  "name": "generator-rest-api",
+  "name": "dsm-rest-gen",
   "version": "1.0.0",
   "description": "Rest API generator using yo",
-  "homepage": "https://github.com/dsmdean/generator-rest-api",
+  "homepage": "https://github.com/dsmdean/dsm-rest-gen",
   "author": {
     "name": "Dean Menso",
     "email": "deanmenso@gmail.com",
@@ -78,6 +78,6 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "https://github.com/dsmdean/generator-rest-api",
+  "repository": "https://github.com/dsmdean/dsm-rest-gen",
   "license": "MIT"
 }
