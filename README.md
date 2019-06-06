@@ -32,9 +32,9 @@ yo generator-dsm
 MIT © [Dean Menso](https://github.com/dsmdean)
 
 
-[npm-image]: https://badge.fury.io/js/generator-kreatemarket.svg
-[npm-url]: https://npmjs.org/package/generator-kreatemarket
-[travis-image]: https://travis-ci.org/dsmdean/generator-kreatemarket.svg?branch=master
-[travis-url]: https://travis-ci.org/dsmdean/generator-kreatemarket
-[daviddm-image]: https://david-dm.org/dsmdean/generator-kreatemarket.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/dsmdean/generator-kreatemarket
+[npm-image]: https://badge.fury.io/js/generator-dsm.svg
+[npm-url]: https://npmjs.org/package/generator-dsm
+[travis-image]: https://travis-ci.org/dsmdean/generator-dsm.svg?branch=master
+[travis-url]: https://travis-ci.org/dsmdean/generator-dsm
+[daviddm-image]: https://david-dm.org/dsmdean/generator-dsm.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/dsmdean/generator-dsm
