@@ -1,8 +1,8 @@
 {
-  "name": "dsm-rest-gen",
+  "name": "generator-dsm",
   "version": "1.0.0",
   "description": "Rest API generator using yo",
-  "homepage": "https://github.com/dsmdean/dsm-rest-gen",
+  "homepage": "https://github.com/dsmdean/generator-dsm",
   "author": {
     "name": "Dean Menso",
     "email": "deanmenso@gmail.com",
@@ -41,7 +41,10 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "lodash": "^4.17.11",
+    "pluralize": "^8.0.0",
     "rand-token": "^0.4.0",
+    "recast": "^0.18.1",
+    "reserved-words": "^0.1.2",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
@@ -78,6 +81,6 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "https://github.com/dsmdean/dsm-rest-gen",
+  "repository": "https://github.com/dsmdean/generator-dsm",
   "license": "MIT"
 }

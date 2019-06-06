@@ -30,7 +30,7 @@ export const loggedIn = (req, res, next) => {
     if (req.user._id === req.params.userId || req.user._id === req.body.userId) {
         next()
     } else {
-        var err = new Error('Unauthorized: You are authenticated but are not allowed to view this data!')
+        var err = new Error('Unauthorized: user access only.')
         err.status = 403
         return next(err)
     }
@@ -40,7 +40,7 @@ export const admin = (req, res, next) => {
     if (req.user.role === "admin") {
         next()
     } else {
-        var err = new Error('Unauthorized: You are authenticated but not an admin!')
+        var err = new Error('Unauthorized: admin access only.')
         err.status = 403
         return next(err)
     }

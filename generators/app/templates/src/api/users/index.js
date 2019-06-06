@@ -47,7 +47,7 @@ router.get('/forgot', forgot)
  * @apiGroup User
  * @apiSuccess {Object{message}} message Password has been reset
  * @apiError {Object{error, message}} 401 Your password reset link is expired.
- * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+ * @apiError {Object{error}} 400 Some parameters may contain invalid values.
  */
 router.post('/reset', reset)
 
@@ -59,7 +59,7 @@ router.post('/reset', reset)
  * @apiError {Object{error, message}} 401 This account is not recognized
  * @apiError {Object{error, message}} 401 This account is not verified
  * @apiError {Object{error, message}} 401 This account is no longer active
- * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+ * @apiError {Object{error}} 400 Some parameters may contain invalid values.
  */
 router.post('/login', login)
 
@@ -68,7 +68,7 @@ router.post('/login', login)
  * @apiName LogoutUser
  * @apiGroup User
  * @apiSuccess {Object{message}} message Log out message
- * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+ * @apiError {Object{error}} 400 Some parameters may contain invalid values.
  */
 router.get('/logout', user, logout)
 
@@ -82,7 +82,7 @@ router.route('/:userId')
    * @apiParam {String} userId Users unique ID.
    * @apiSuccess {Object{user}} user Retrieved user
    * @apiError {Object{error}} 404 User not found.
-   * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+   * @apiError {Object{error}} 400 Some parameters may contain invalid values.
    */
   .get(getById)
   /**
@@ -93,7 +93,7 @@ router.route('/:userId')
    * @apiParam {String} userId Users unique ID.
    * @apiSuccess {Object{user}} user Updated user
    * @apiError {Object{error}} 404 User not found.
-   * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+   * @apiError {Object{error}} 400 Some parameters may contain invalid values.
    */
   .put(loggedIn, putById)
   /**
@@ -104,7 +104,7 @@ router.route('/:userId')
    * @apiParam {String} userId Users unique ID.
    * @apiSuccess {Object{user}} user Remove user
    * @apiError {Object{error}} 404 User not found.
-   * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+   * @apiError {Object{error}} 400 Some parameters may contain invalid values.
    */
   .delete(loggedIn, deleteById)
 
@@ -116,7 +116,7 @@ router.route('/:userId')
  * @apiParam {String} userId Users unique ID.
  * @apiSuccess {Object{message}} message Password has been reset
  * @apiError {Object{error}} 401 Your current password is not correct
- * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+ * @apiError {Object{error}} 400 Some parameters may contain invalid values.
  */
 router.put('/:userId/reset', user, loggedIn, resetPassword)
 
@@ -128,8 +128,8 @@ router.put('/:userId/reset', user, loggedIn, resetPassword)
    * @apiParam {String} username Users unique ID.
    * @apiSuccess {Object{user}} user Retrieved user
    * @apiError {Object{error}} 404 User not found.
-   * @apiError {Object{error}} 500 Some parameters may contain invalid values.
+   * @apiError {Object{error}} 400 Some parameters may contain invalid values.
    */
 router.get('/username/:username', user, getByUsername)
 
-module.exports = router;
+export default router

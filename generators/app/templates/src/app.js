@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import createError from 'http-errors'
+// import createError from 'http-errors'
 import express from 'express'
 import cors from 'express-cors'
 import path from 'path'
@@ -9,7 +9,10 @@ import mongoose from 'mongoose'
 <%_ if (generateUserApi) {_%>
 import passport from 'passport'
 import './services/passport'
+
+import usersRouter from './api/users'
 <%_ } _%>
+// import indexRouter from './api/index'
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, {
@@ -21,11 +24,6 @@ db.on('error', console.error.bind(console, 'connection error:'))  // eslint-disa
 db.once('open', () => {
   console.log("Connected to server")  // eslint-disable-line no-console
 })
-
-const indexRouter = require('./api/index')
-<%_ if (generateUserApi) {_%>
-const usersRouter = require('./api/users')
-<%_ } _%>
 
 const app = express()
 
@@ -80,22 +78,22 @@ app.use(express.static(path.join(__dirname, 'default/public')))
 <%_ if (generateUserApi) {_%>
 app.use('/users', usersRouter)
 <%_ } _%>
-app.use('/*', indexRouter)
+// app.use('/*', indexRouter)
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
-  next(createError(404))
-})
+// app.use((req, res, next) => {
+//   next(createError(404))
+// })
 
 // error handler
-app.use((err, req, res) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message
-  res.locals.error = req.app.get('env') === 'development' ? err : {}
+// app.use((err, req, res) => {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message
+//   res.locals.error = req.app.get('env') === 'development' ? err : {}
 
-  // render the error page
-  res.status(err.status || 500)
-  res.render('error')
-})
+//   // render the error page
+//   res.status(err.status || 500)
+//   res.render('error')
+// })
 
 module.exports = app

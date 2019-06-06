@@ -9,7 +9,7 @@ module.exports = class extends Generator {
   prompting() {
     var that = this;
     this.log(yosay(
-      `Welcome to the tiptop ${chalk.red('generator-km-rest-api')} generator!`
+      `Welcome to the tiptop ${chalk.red('generator-dsm')} generator!`
     ));
 
     return this.prompt([{

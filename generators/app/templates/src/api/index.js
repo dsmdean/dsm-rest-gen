@@ -12,4 +12,4 @@ router.get('/', (req, res) => {
   res.render('index', { title: '<%= name %>' });
 })
 
-module.exports = router
+export default router
