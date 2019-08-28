@@ -33,6 +33,14 @@ module.exports = class extends Generator {
       message: 'Do you want to generate a user API (it will need some additonal data)?',
       default: true
     }, {
+      type: 'confirm',
+      name: 'defaultAuth',
+      message: 'Do you want to authenticate users using a username and password instead of an email and password?',
+      default: true,
+      when: function (props) {
+        return props.generateUserApi;
+      }
+    }, {
       type: 'input',
       name: 'sendgridKey',
       message: 'What\'s your SendGrid API Key (you can skip this and update the .env file later)?',

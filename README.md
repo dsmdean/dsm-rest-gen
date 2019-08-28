@@ -13,7 +13,13 @@ npm install -g generator-dsm
 Then generate your new project:
 
 ```bash
-yo generator-dsm
+yo dsm
+```
+
+To generate a new route(API):
+
+```bash
+yo dsm:route
 ```
 
 ## Getting To Know Yeoman

@@ -11,18 +11,20 @@ export const user = (req, res, next) => {
     if (token) {
         jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
             if (err) {
-                var error = new Error('You are not authenticated!')
-                error.status = 401
-                return next(error)
+                var status = 401;
+                var message = 'You are not authenticated!';
+                var err = {status, message };
+                return res.status(status).json({ err })
             } else {
                 req.user = user
                 next()
             }
         })
     } else {
-        var err = new Error('No token provided!')
-        err.status = 401
-        return next(err)
+        var status = 401;
+        var message = 'No token provided!';
+        var err = {status, message };
+        return res.status(status).json({ err })
     }
 }
 
@@ -30,9 +32,10 @@ export const loggedIn = (req, res, next) => {
     if (req.user._id === req.params.userId || req.user._id === req.body.userId) {
         next()
     } else {
-        var err = new Error('Unauthorized: user access only.')
-        err.status = 403
-        return next(err)
+        var status = 403;
+        var message = 'Unauthorized: logged in user access only.';
+        var err = {status, message };
+        return res.status(status).json({ err })
     }
 }
 
@@ -40,8 +43,9 @@ export const admin = (req, res, next) => {
     if (req.user.role === "admin") {
         next()
     } else {
-        var err = new Error('Unauthorized: admin access only.')
-        err.status = 403
-        return next(err)
+        var status = 403;
+        var message = 'Unauthorized: admin access only.';
+        var err = {status, message };
+        return res.status(status).json({ err })
     }
 }

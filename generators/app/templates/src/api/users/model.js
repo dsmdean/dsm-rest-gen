@@ -1,15 +1,17 @@
 import crypto from 'crypto'
 import mongoose, { Schema } from 'mongoose'
 import passportLocalMongoose from 'passport-local-mongoose'
+import passportLocalMongooseEmail from 'passport-local-mongoose-email';
 const roles = ['user', 'admin']
 
 const userSchema = new Schema({
+    <%_ if (defaultAuth) {_%>
     username: {
         type: String,
         required: true,
         unique: true,
         lowercase: true
-    },
+    },<%_ } _%>
     name: {
         type: String,
         required: true,
@@ -55,9 +57,15 @@ userSchema.path('email').set(function (email) {
     return email
 })
 
-export const defaultSelection = 'username name company email website role picture isActive stripeCustomerId createdAt'
-export const minSelection = 'username name company email'
+export const defaultSelection = '<%_ if (defaultAuth) {_%>username <%_ } _%> name email website role picture isActive stripeCustomerId createdAt'
+export const minSelection = '<%_ if (defaultAuth) {_%>username <%_ } _%> name email'
 
+<%_ if (defaultAuth) {_%>
 userSchema.plugin(passportLocalMongoose);
+<%_ } else { _%>
+userSchema.plugin(passportLocalMongooseEmail, {
+  usernameField: 'email'
+});
+<%_ } _%>
 const model = mongoose.model('User', userSchema)
 export default model

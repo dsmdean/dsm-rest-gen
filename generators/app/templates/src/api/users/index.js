@@ -1,6 +1,6 @@
 import express from 'express'
 import { user, loggedIn, admin } from '../../services/jwt'
-import { getAllUsers, register, verify, forgot, reset, login, logout, getByUsername, getById, putById, deleteById, resetPassword } from './controller'
+import { getAllUsers, register, verify, forgot, reset, login, logout, <%_ if (defaultAuth) {_%> getByUsername, <%_ } else { _%> getByEmail, <%_ } _%> getById, putById, deleteById, resetPassword } from './controller'
 
 const router = express.Router()
 
@@ -120,16 +120,30 @@ router.route('/:userId')
  */
 router.put('/:userId/reset', user, loggedIn, resetPassword)
 
+<%_ if (defaultAuth) {_%>
 /**
-   * @api {get} /users/username/:username Retrieve user by username
-   * @apiName RetrieveUserByUsername
-   * @apiGroup User
-   * @apiPermission user
-   * @apiParam {String} username Users unique ID.
-   * @apiSuccess {Object{user}} user Retrieved user
-   * @apiError {Object{error}} 404 User not found.
-   * @apiError {Object{error}} 400 Some parameters may contain invalid values.
-   */
+ * @api {get} /users/username/:username Retrieve user by username
+ * @apiName RetrieveUserByUsername
+ * @apiGroup User
+ * @apiPermission user
+ * @apiParam {String} username Users unique ID.
+ * @apiSuccess {Object{user}} user Retrieved user
+ * @apiError {Object{error}} 404 User not found.
+ * @apiError {Object{error}} 400 Some parameters may contain invalid values.
+ */
 router.get('/username/:username', user, getByUsername)
+<%_ } else {_%>
+/**
+ * @api {get} /users/email/:email Retrieve user by email
+ * @apiName RetrieveUserByEmail
+ * @apiGroup User
+ * @apiPermission user
+ * @apiParam {String} username Users unique ID.
+ * @apiSuccess {Object{user}} user Retrieved user
+ * @apiError {Object{error}} 404 User not found.
+ * @apiError {Object{error}} 400 Some parameters may contain invalid values.
+ */
+router.get('/email/:email', user, getByEmail)
+<%_ } _%>
 
 export default router
