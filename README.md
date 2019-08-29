@@ -22,6 +22,12 @@ To generate a new route(API):
 yo dsm:route
 ```
 
+To generate a new Angular project:
+
+```bash
+yo dsm:ng
+```
+
 ## Getting To Know Yeoman
 
  * Yeoman has a heart of gold.
